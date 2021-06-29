@@ -1,0 +1,148 @@
+<scene version="2.1.0">
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+	<default name="spp" value="128"/>
+	<default name="resx" value="1920"/>
+	<default name="resy" value="1080"/>
+
+<!-- Camera and Rendering Parameters -->
+
+	<integrator type="path">
+		<integer name="max_depth" value="12"/>
+	</integrator>
+	<sensor type="perspective">
+		<string name="fov_axis" value="x"/>
+		<float name="fov" value="39.597755"/>
+		<float name="near_clip" value="0.100000"/>
+		<float name="far_clip" value="1000.000000"/>
+		<transform name="to_world">
+			<rotate x="1" angle="-125.00000234007703"/>
+			<rotate y="1" angle="2.8730189615371992e-06"/>
+			<rotate z="1" angle="-179.999991348578"/>
+			<translate value="0.000000 500.000000 0.000000"/>
+		</transform>
+		<sampler type="independent">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+		<film type="hdrfilm">
+			<integer name="width" value="$resx"/>
+			<integer name="height" value="$resy"/>
+		</film>
+	</sensor>
+
+<!-- Materials -->
+
+	<bsdf type="twosided" id="mat-D">
+		<bsdf type="diffuse">
+			<texture type="bitmap" name="reflectance">
+				<string name="filename" value="textures\diffuse.png"/>
+			</texture>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat-leaf">
+		<bsdf type="measured">
+			<string name="filename" value="textures\leaf_maple_spec.bsdf"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat-tronco">
+		<bsdf type="measured">
+			<string name="filename" value="textures\cardboard_spec.bsdf"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="mat-colodur_kalahari_2a_spec">
+		<bsdf type="measured">
+			<string name="filename" value="textures\colodur_kalahari_2a_spec.bsdf"/>
+		</bsdf>
+	</bsdf>
+
+
+<!-- Emitters -->
+
+
+<!-- Shapes -->
+
+	<shape type="ply">
+		<string name="filename" value="meshes\Plane.003.ply"/>
+		<ref id="mat-colodur_kalahari_2a_spec" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_leaf_002251_base.ply"/>
+		<ref id="mat-leaf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_tru0156106501615901.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_tru0156106501615901_3_.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_tru0156106501615901_1_.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_tru0156106501615901_2_.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_leaf_0202251.ply"/>
+		<ref id="mat-leaf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_t0101606501615901.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_leaf_02022351_base.ply"/>
+		<ref id="mat-leaf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_t0101606501615901_3_.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_t0101606501615901_1_.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_t0101606501615901_2_.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-skatter_leaf_02022351.ply"/>
+		<ref id="mat-leaf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-tronco_sdf0sd51f0sd1f06a1d06f5a10d6f01a101vcd.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-folhas_fdsf0sdf1s50af160a5d1f0a6sdf1a6d1w.ply"/>
+		<ref id="mat-leaf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-tronco_sdfs0fd1s50af1a06df1a056df01w560e1r.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-tronco_sdaf000s00s0s15wr1e056w0156fsd0f1s56w.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-folhas_sdwerw9000sd1f5sd1f06sd51f055500505werwe5.ply"/>
+		<ref id="mat-leaf" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-Material_1.ply"/>
+		<ref id="mat-tronco" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\tree pack 002-Material_4.ply"/>
+		<ref id="mat-leaf" name="bsdf"/>
+	</shape>
+</scene>
